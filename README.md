@@ -1,2 +1,2 @@
-# Studi Kasus 1-Prediksi-Customer-Churn-pada-Layanan-Telekomunikasi-Berlangganan
-Penerapan CRISP-DM untuk mendeteksi risiko churn pelanggan. Mengatasi missing values dan imbalanced data, mencegah data leakage, serta merumuskan aksi preskriptif otomatis guna menekan angka perpindahan pelanggan
+# Studi Kasus 1 Prediksi Customer Churn pada Layanan Telekomunikasi Berlangganan
+Penerapan siklus CRISP-DM untuk mendeteksi risiko churn pelanggan. Solusi ini menangani data kotor dan imbalanced data, mengeliminasi risiko data leakage, serta menyediakan rekomendasi tindakan preskriptif otomatis berbasis probabilitas risiko guna mempertahankan loyalitas pelanggan dan menekan potensi kerugian bisnis secara proaktif

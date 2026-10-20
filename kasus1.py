@@ -5,7 +5,6 @@ from sklearn.metrics import classification_report, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-# 1. SIMULASI DATA (Realitas Industri)
 np.random.seed(42)
 n_users = 1200
 
@@ -36,18 +35,14 @@ df = pd.DataFrame({
     'churn': churn,
 })
 
-# Missing value injection
 df.loc[np.random.choice(n_users, 30), 'monthly_charges'] = np.nan
 
-# 2. DATA PREPARATION (Mitigasi GIGO & Data Leakage)
 df['monthly_charges'] = df['monthly_charges'].fillna(df['monthly_charges'].median())
 
-# Hapus ID & variabel pasca-kejadian (Leakage)
 X = df.drop(columns=['customer_id', 'cancellation_reason', 'churn'])
 y = df['churn']
 X = pd.get_dummies(X, columns=['contract_type'], drop_first=True)
 
-# 3. PEMODELAN & EVALUASI (Mitigasi Imbalance Data)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.25, random_state=42, stratify=y
 )
@@ -68,7 +63,6 @@ print('=== EVALUASI PERFORMA MODEL ===')
 print(classification_report(y_test, y_pred, target_names=['Retain', 'Churn']))
 print(f'ROC-AUC Score: {roc_auc_score(y_test, y_probs):.4f}')
 
-# 4. TINGKAT PRESKRIPTIF (Decision Engine)
 test_results = X_test.copy()
 test_results['churn_probability'] = y_probs
 
